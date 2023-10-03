@@ -52,8 +52,8 @@ management:
 logging.level:
   ROOT: info
   by.vk.catalog: info
-  org.springframework: info
-  reactor.netty.http.client: error
+  org.springframework: trace
+  reactor.netty.http.client: trace
 
 springdoc:
   show-actuator: true
@@ -65,9 +65,6 @@ springdoc:
 service:
   webclient:
     enabled: true
-    timeout: 100
+    timeout: 300000
     max-attempts: 3
-    duration: 1
-    datasets:
-      - "https://wy6dzuoui7e6pj3j2jvogpqfra0freyl.lambda-url.eu-central-1.on.aws/"
-      - "https://bhgr7biprbs2zbqxfo42sspzsy0pwclg.lambda-url.eu-central-1.on.aws/"
+    duration: 3

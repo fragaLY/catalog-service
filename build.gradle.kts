@@ -43,20 +43,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.2.0")
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
     implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
     implementation("com.google.cloud:spring-cloud-gcp-starter")
-    //endregion
-
-    //endregion
-    //region test
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("io.projectreactor:reactor-test")
-    testImplementation("org.testcontainers:elasticsearch")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:r2dbc")
     //endregion
 }
 
@@ -85,7 +75,7 @@ object JVMProps {
 jib {
     setAllowInsecureRegistries(false)
     to {
-        image = "catalog-service:latest"
+        image = "gcr.io/template-ase/catalog-service"
     }
     from {
         image = "gcr.io/distroless/java17"
@@ -111,3 +101,6 @@ jib {
         creationTime.set("USE_CURRENT_TIMESTAMP")
     }
 }
+
+//todo vk: add redis cache
+//todo vk: add artifact publishing to google cloud registry

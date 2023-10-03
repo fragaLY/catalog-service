@@ -27,32 +27,32 @@ public record EquipmentService(ReactiveElasticsearchTemplate template) {
 
     var criteria = new Criteria();
 
-    if (!ObjectUtils.isEmpty(parameters.get("brandName"))) {
-      criteria.and(new Criteria("BrandName").contains(parameters.get("brandName")));
+    if (!ObjectUtils.isEmpty(parameters.get("BrandName"))) {
+      criteria.and(new Criteria("BrandName").contains(parameters.get("BrandName")));
     }
 
-    if (!ObjectUtils.isEmpty(parameters.get("details"))) {
-      criteria.and(new Criteria("Details").contains(parameters.get("details")));
+    if (!ObjectUtils.isEmpty(parameters.get("Details"))) {
+      criteria.and(new Criteria("Details").contains(parameters.get("Details")));
     }
 
-    if (!ObjectUtils.isEmpty(parameters.get("size"))) {
-      criteria.and(new Criteria("Sizes").contains(parameters.get("size")));
+    if (!ObjectUtils.isEmpty(parameters.get("Sizes"))) {
+      criteria.and(new Criteria("Sizes").contains(parameters.get("Sizes")));
     }
 
-    if (!ObjectUtils.isEmpty(parameters.get("category"))) {
-      criteria.and(new Criteria("Category").contains(parameters.get("category")));
+    if (!ObjectUtils.isEmpty(parameters.get("Category"))) {
+      criteria.and(new Criteria("Category").contains(parameters.get("Category")));
     }
 
-    if (!ObjectUtils.isEmpty(parameters.get("price"))) {
-      var sellPrice = parameters.get("price");
+    if (!ObjectUtils.isEmpty(parameters.get("SellPrice"))) {
+      var sellPrice = parameters.get("SellPrice");
       criteria.and(new Criteria("SellPrice").lessThanEqual(
           BigDecimal.valueOf(Double.parseDouble(sellPrice))));
     }
 
-    if (!ObjectUtils.isEmpty(parameters.get("discount"))) {
+    if (!ObjectUtils.isEmpty(parameters.get("Discount"))) {
       criteria.and(
           new Criteria("Discount").greaterThanEqual(
-              BigDecimal.valueOf(Double.parseDouble(parameters.get("discount")))));
+              BigDecimal.valueOf(Double.parseDouble(parameters.get("Discount")))));
     }
 
     var query = new CriteriaQuery(criteria);

@@ -41,7 +41,7 @@ public class WebClientConfiguration {
 
   @Bean
   public RetryBackoffSpec retrySpec(WebClientProperties properties) {
-    return RetrySpec.backoff(properties.maxAttempts(), Duration.ofSeconds(properties.duration()))
+    return RetrySpec.backoff(properties.maxAttempts(), Duration.ofMillis(properties.duration()))
         .doBeforeRetry(
             signal ->
                 LOGGER.warn(
