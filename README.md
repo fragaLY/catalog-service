@@ -1,6 +1,7 @@
-# catalog-service
+# Catalog Service
 [![Catalog Service CI/CD](https://github.com/fragaLY/catalog-service/actions/workflows/catalog-service.yml/badge.svg?branch=master)](https://github.com/fragaLY/catalog-service/actions/workflows/catalog-service.yml)
-The catalog service is the aggregator for different providers.
+
+## The catalog service is the aggregator for different providers.
 
 Data is stored and handled by ELK. For caches could be used Redis, only Redis supports reactive caching. See docker-compose.local.yml:
 

@@ -23,7 +23,6 @@ public record DataSinkProcessor(WebClient client, RetryBackoffSpec retrySpec,
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DataSinkProcessor.class);
 
-  //todo vk: add caches
   public Flux<Equipment> process(String uri) {
     LOGGER.info("[CATALOG-SERVICE] ETL process for dataset [{}] started.", uri);
     return repository.saveAll(client.get()

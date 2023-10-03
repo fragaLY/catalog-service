@@ -19,7 +19,6 @@ public record EquipmentService(ReactiveElasticsearchTemplate template) {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(EquipmentService.class);
 
-  //todo vk: put in cache
   public Flux<Equipment> search(Map<String, String> parameters, Pageable pageable) {
     LOGGER.info(
         "[CATALOG-SERVICE] Searching an equipment with parameters[{}] and pagination [{}] process started.",

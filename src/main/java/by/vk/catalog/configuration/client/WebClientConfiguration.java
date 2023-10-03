@@ -51,7 +51,6 @@ public class WebClientConfiguration {
         .filter(throwable -> throwable instanceof Exception)
         .onRetryExhaustedThrow(
             (retryBackoffSpec, retrySignal) -> {
-              //todo: get info from caches
               throw new NotFoundException("No datasets found.");
             });
   }

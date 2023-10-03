@@ -102,5 +102,4 @@ jib {
     }
 }
 
-//todo vk: add redis cache
 //todo vk: add artifact publishing to google cloud registry
