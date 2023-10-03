@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: Catalog Service OpenAPI definition
+  version: v1
+servers:
+  - url: http://localhost:8080
+    description: Catalog Service
+
+paths:
+  /api/v1/items:
+    get:
+      tags:
+        - items
+      summary: Returns items
+      operationId: getItems
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ItemsResponses'
+        "400":
+          description: BAD_REQUEST
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Exception'
+        "401":
+          description: NOT_AUTHORIZED
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Exception'
+        "403":
+          description: FORBIDDEN
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Exception'
+        "404":
+          description: NOT_FOUND
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Exception'
+        "500":
+          description: UNEXPECTED_EXCEPTIOn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Exception'
+
+components:
+  schemas:
+    ItemsResponses:
+      type: array
+      items:
+        $ref: '#/components/schemas/ItemResponse'
+    ItemResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: string
+    Exception:
+      type: object
+      properties:
+        message:
+          type: string
