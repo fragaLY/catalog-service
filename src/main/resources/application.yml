@@ -52,8 +52,8 @@ management:
 logging.level:
   ROOT: info
   by.vk.catalog: info
-  org.springframework: trace
-  reactor.netty.http.client: trace
+  org.springframework: info
+  reactor.netty.http.client: info
 
 springdoc:
   show-actuator: true
