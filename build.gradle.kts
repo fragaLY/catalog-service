@@ -31,6 +31,7 @@ repositories {
     mavenCentral()
 }
 
+extra["springCloudGcpVersion"] = "4.8.0"
 extra["springCloudVersion"] = "2022.0.4"
 
 dependencies {
@@ -45,7 +46,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
     implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
-    implementation("com.google.cloud:spring-cloud-gcp-starter:1.2.8.RELEASE")
+    implementation("com.google.cloud:spring-cloud-gcp-starter")
     //endregion
 
     //endregion
@@ -61,6 +62,7 @@ dependencies {
 
 dependencyManagement {
     imports {
+        mavenBom("com.google.cloud:spring-cloud-gcp-dependencies:${property("springCloudGcpVersion")}")
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
     }
 }

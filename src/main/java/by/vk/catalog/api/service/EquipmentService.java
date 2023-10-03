@@ -31,7 +31,7 @@ public record EquipmentService(ReactiveElasticsearchTemplate template) {
       criteria.and(new Criteria("BrandName").contains(parameters.get("brandName")));
     }
 
-    if (ObjectUtils.isEmpty(parameters.get("details"))) {
+    if (!ObjectUtils.isEmpty(parameters.get("details"))) {
       criteria.and(new Criteria("Details").contains(parameters.get("details")));
     }
 
