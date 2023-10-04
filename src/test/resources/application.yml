@@ -1,0 +1,70 @@
+server:
+  port: 8080 # default
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  application:
+    name: catalog-service
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  main:
+    banner-mode: off
+    lazy-initialization: true
+    web-application-type: reactive
+  jackson:
+    time-zone: UTC
+    locale: en_US
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: ${ELASTIC_ADDRESS:localhost}:${ELASTIC_PORT:9200}
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      client-name: ${spring.application.name}
+      client-type: lettuce # provides reactive connection
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-components: never
+      show-details: never
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints.web.exposure.include: "*"
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging.level:
+  ROOT: info
+  by.vk.catalog: info
+  org.springframework: info
+  reactor.netty.http.client: info
+
+springdoc:
+  show-actuator: true
+  api-docs:
+    enabled: false
+    groups:
+      enabled: false
+
+service:
+  webclient:
+    enabled: true
+    timeout: 300000
+    max-attempts: 3
+    duration: 3

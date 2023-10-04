@@ -48,6 +48,13 @@ dependencies {
     implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
     implementation("com.google.cloud:spring-cloud-gcp-starter")
     //endregion
+
+    //region test
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
+    testImplementation("org.testcontainers:elasticsearch")
+    testImplementation("org.testcontainers:junit-jupiter")
+    //endregion
 }
 
 dependencyManagement {
