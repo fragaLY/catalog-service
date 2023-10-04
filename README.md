@@ -59,7 +59,7 @@ volumes:
 ```
 
 Feel free to run it to work localy. 
-To boot up the application use ```./gradlew bootRun``` command.
+To boot up the application use ```./gradlew bootRun``` command or pull the image ```docker pull fragaly/catalog-service:1.0.0-RC1```.
 
 See the Open Api documentation to be familiar with service API:
 
