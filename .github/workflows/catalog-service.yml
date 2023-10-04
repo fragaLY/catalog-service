@@ -70,4 +70,4 @@ jobs:
           image: "gcr.io/template-ase/catalog-service"
           fail-build: false
           severity-cutoff: critical
-      - run: ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.image=${{ secrets.DOCKER_HUB_REGISTRY }}/${{ secrets.DOCKER_HUB_USERNAME }}/catalog-service:latest -Djib.to.auth.username=${{ secrets.DOCKER_HUB_USERNAME}} -Djib.to.auth.password=${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - run: ./gradlew --parallel --no-daemon jib -x check -q

@@ -84,6 +84,10 @@ jib {
     to {
         image = "fragaly/catalog-service"
         tags = setOf("$version", "latest")
+        auth{
+            username = "fragaly"
+            password = System.getenv("DOCKER_HUB_ACCESS_TOKEN")
+        }
     }
     from {
         image = "gcr.io/distroless/java17"
