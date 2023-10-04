@@ -108,5 +108,3 @@ jib {
         creationTime.set("USE_CURRENT_TIMESTAMP")
     }
 }
-
-//todo vk: add artifact publishing to google cloud registry

@@ -69,4 +69,4 @@ jobs:
           image: "gcr.io/template-ase/catalog-service"
           fail-build: false
           severity-cutoff: critical
-      - run: ./gradlew --parallel --no-daemon jib -x check -q
+      - run: ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.auth.username="_json_key" -Djib.to.auth.password=${{ secrets.SERVICE_ACCOUNT_KEY }}
