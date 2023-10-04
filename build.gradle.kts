@@ -83,7 +83,7 @@ jib {
     setAllowInsecureRegistries(false)
     to {
         image = "fragaly/catalog-service"
-        tags.addAll(listOf("$version", "latest"))
+        tags = setOf("$version", "latest")
     }
     from {
         image = "gcr.io/distroless/java17"
