@@ -84,9 +84,6 @@ jib {
     to {
         image = "fragaly/catalog-service"
         tags = setOf("$version", "latest")
-        auth{
-            username = "fragaly"
-        }
     }
     from {
         image = "gcr.io/distroless/java17"
