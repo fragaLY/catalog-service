@@ -86,7 +86,6 @@ jib {
         tags = setOf("$version", "latest")
         auth{
             username = "fragaly"
-            password = System.getenv("DOCKER_HUB_ACCESS_TOKEN")
         }
     }
     from {
