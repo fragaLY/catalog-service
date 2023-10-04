@@ -82,8 +82,8 @@ object JVMProps {
 jib {
     setAllowInsecureRegistries(false)
     to {
-        image = "gcr.io/template-ase/catalog-service"
-        credHelper.helper = "gcr"
+        image = "fragaly/catalog-service"
+        tags.addAll(listOf("$version", "latest"))
     }
     from {
         image = "gcr.io/distroless/java17"
