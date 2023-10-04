@@ -22,7 +22,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon compileJava
+      - run: ./gradlew --parallel --no-daemon compileJava -q
   tests:
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +35,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon test
+      - run: ./gradlew --parallel --no-daemon test -q
   build:
     runs-on: ubuntu-latest
     needs: [ "compile", "tests" ]
@@ -49,7 +49,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon build -x check
+      - run: ./gradlew --parallel --no-daemon build -x check -q
   delivery:
     runs-on: ubuntu-latest
     needs: [ "build" ]
@@ -63,10 +63,10 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon jibDockerBuild -x check
+      - run: ./gradlew --parallel --no-daemon jibDockerBuild -x check -q
       - uses: anchore/scan-action@v3
         with:
           image: "gcr.io/template-ase/catalog-service"
           fail-build: true
           severity-cutoff: critical
-      - run: ./gradlew --parallel --no-daemon jib -x check
+      - run: ./gradlew --parallel --no-daemon jib -x check -q
