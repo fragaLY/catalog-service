@@ -83,6 +83,7 @@ jib {
     setAllowInsecureRegistries(false)
     to {
         image = "gcr.io/template-ase/catalog-service"
+        credHelper.helper = "gcr"
     }
     from {
         image = "gcr.io/distroless/java17"
