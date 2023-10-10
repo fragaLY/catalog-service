@@ -18,9 +18,6 @@ configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
     }
-    implementation {
-        exclude("org.springframework", "spring-boot-starter-tomcat")
-    }
 }
 
 springBoot {
