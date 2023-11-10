@@ -2,7 +2,6 @@ package by.vk.catalog.api.data;
 
 import by.vk.catalog.api.repository.Equipment;
 import by.vk.catalog.api.repository.EquipmentRawData;
-import by.vk.catalog.configuration.client.WebClientConfiguration;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
