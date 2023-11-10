@@ -174,4 +174,4 @@ components:
 
 ### Data Migration High Level Design
 
-![management-side](./static/amazon-like-migration.pngs)
+![migration](./static/amazon-like-migration.png)
